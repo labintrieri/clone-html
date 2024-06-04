@@ -1,79 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Que Deputado Federal disse isso?</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/nes.css@latest/css/nes.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0; 
-            border: 20px solid #f0f0f0; 
-            font-size: 16px;
-        }
-        .header {
-            background-color: #003366;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 0;
-            position: relative;
-            height: 350px; 
-            overflow: hidden; 
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr; 
-            grid-gap: 0px;
-        }
-        .header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-        }
-        .header h1 {
-            margin: 0;
-            padding: 25px 0; 
-            position: relative; 
-            z-index: 1; 
-            grid-column: 1 / 4;
-            font-weight: normal;
-        }
-        .content {
-            padding: 20px;
-        }
-        .content h2 {
-            color: #01aa01;
-        }
-        .content p {
-            line-height: 1.6;
-        }
-        .começar-jogo {
-            margin-top: 20px;
-        }
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-        }
+     body {
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dadad9; 
+    font-size: 16px;
+    color: #000000;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+.header {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    height: 350px; 
+    overflow: hidden; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 0px;
+}
+
+.header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.content {
+    padding: 20px;
+}
+
+.duelo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #f0f0ef;
+    border: 2px solid #1d2763;
+    border-radius: 15px;
+}
+
+.duelo-candidato {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.duelo-candidato img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1d2763;
+    transition: border-color 0.3s ease;
+}
+
+.duelo-candidato:hover img {
+    border-color: #3ebe65;
+}
+
+.duelo-candidato:hover {
+    transform: scale(1.05);
+}
+
+.duelo-frase {
+    font-size: 1.5em;
+    color: #1d2763;
+    font-weight: bold;
+    text-align: center;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #1d2763;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    text-shadow: 1px 1px 0px #000000;
+}
+   
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Que Deputado Federal disse isso?</h1>
-        <img src="capa.jpg" alt="Deputados Federais">
-        <img src="capa1.jpg" alt="Deputados Federais">
-        <img src="capa2.jpg" alt="Deputados Federais">
+        <h1 class="nes-text is-primary">Que Deputado Federal disse isso?</h1>
+        <img src="capa3.jpg" alt="Deputados Federais">
     </div>
     <div class="content">
-        <h2>Sobre o Projeto</h2>
+        <h2 class="nes-text is-success">Sobre o Projeto</h2>
         <p>Salve, povo! Bem-vindos à primeira versão de meu projeto final na disciplina "Programação Web". Coisa boa (ou mais ou menos, vai) vem aí.</p>
-        <h2>Começar jogo</h2>
-        <div class="começar-jogo">
-            <button value="">Clique aqui para começar a jogar</button>
-        </div>
+        <div class="duelo-container">
+            <div class="duelo-candidato" onclick="escolherCandidato('candidato1')">
+                <img src="erika-hilton.jpg" alt="Candidato 1" class="nes-avatar is-rounded">
+                <p class="nes-text">Candidato 1</p>
+            </div>
+            <div class="duelo-frase nes-container is-rounded">
+                "O que nós não queremos é que se confundam criminosos com evangélicos, que se deturpe a palavra de Deus, que se use do Evangelho para pregar violência contra o grupo que já é historicamente violentado"
+            </div>
+            <div class="duelo-candidato" onclick="escolherCandidato('candidato2')">
+                <img src="andre-janones.jpg" alt="Candidato 2" class="nes-avatar is-rounded">
+                <p class="nes-text">Candidato 2</p>
+            </div>
     </div>
     <footer>
-        © 2024 Todos os direitos reservados.
+        <p class="nes-text">© 2024 Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function escolherCandidato(candidato) {
+            alert('Você escolheu o ' + candidato);
+        }
+
+        function iniciarJogo() {
+            alert('Jogo iniciado!');
+        }
+    </script>
 </body>
 </html>
